@@ -1,5 +1,6 @@
-<h1 align="center">Eliabot</h1>
-<div align="center"><img src="./logo.png" /></div>
+<h1 align="center">culioBOT</h1>
+
+Projeto original (Eliabot): https://github.com/eliabefranca/eliabot
 
 ## O que é
 
