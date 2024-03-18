@@ -2,6 +2,8 @@ import { Command, CommandData, CommandType } from '@command-protocols';
 import { outputErrorMessage } from '@bot-utils/output-error-message';
 import { getSiteImage } from '@bot-utils/get-site-image';
 
+const imageDataURI = require('image-data-uri');
+
 // TODO: move this to a util file
 function getIndexAndTextFromQuery(query: string): {
   index: number;
@@ -40,13 +42,14 @@ const func: Command = async ({ value, client, message }) => {
     encodeURI(`https://google.com/search?q=${value}`)
   );
 
+  const dataUri = await imageDataURI.encodeFromURL(siteImage);
+
   await client.sendImage(
     message.from,
-    siteImage,
+    dataUri,
     'result.png',
-    `Ta na mão.
-  link: ${siteImage}
-      `,
+    `*${value}*
+Ta na mão meu consagrado.`,
     message.id
   );
 };

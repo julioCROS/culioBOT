@@ -32,7 +32,7 @@ export class Bot {
 
   async start(): Promise<void> {
     this.client = await wa.create({
-      sessionId: 'ELIABOT',
+      sessionId: 'BOT_WHATSAPP_SESSION',
       authTimeout: 60, //wait only 60 seconds to get a connection with the host account device
       blockCrashLogs: true,
       disableSpins: true,
@@ -141,5 +141,5 @@ export class Bot {
   private async handleOnAddedToGroup(
     chat: Chat,
     client: Client
-  ): Promise<void> {}
+  ): Promise<void> { }
 }

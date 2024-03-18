@@ -10,6 +10,7 @@ const func: Command = async ({ value, client, message }) => {
   }
 
   if (mediaMsg.mimetype) {
+    console.log("SENDER ID: ", message.sender)
     const mediaData = await decryptMedia(mediaMsg);
 
     const imageBase64 = `data:${mediaMsg.mimetype};base64,${mediaData.toString(
@@ -22,18 +23,18 @@ const func: Command = async ({ value, client, message }) => {
         imageBase64,
         {},
         {
-          author: 'Eliabot',
+          author: 'culio.CROSS_BOT',
           keepScale: true,
-          pack: 'teucu',
+          pack: `BOT - Pedido por [${message.sender.pushname}]`,
           circle: value?.includes('circle'),
           removebg: value?.includes('removebg'),
         }
       );
     } else {
       await client.sendImageAsSticker(message.from, imageBase64, {
-        author: 'Eliabot',
+        author: 'culio.CROSS_BOT',
         keepScale: true,
-        pack: 'teucu',
+        pack: `BOT - Pedido por [${message.sender.pushname}]`,
         circle: value?.includes('circle'),
         removebg: value?.includes('removebg'),
       });

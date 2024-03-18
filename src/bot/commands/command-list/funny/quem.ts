@@ -1,13 +1,18 @@
 import { Command, CommandData, CommandType } from '@command-protocols';
-import { getRandomContactNumber } from '@bot-utils';
+import { getNumberFromContactId } from '@bot-utils';
+import { getRandom } from '@utils';
 
 const func: Command = async ({ message, client, value }) => {
-  const contactNumber = await getRandomContactNumber(client, message);
+  const groupMembers = await client.getGroupMembers(message.chat.id as any);
+  const member = getRandom(groupMembers);
+  const contactNumber = getNumberFromContactId(member.id);
+
+  console.log('contactNumber', contactNumber);
+  console.log('memberId', member);
 
   await client.sendTextWithMentions(
     message.from,
-    `quem ${value}: 😶👉 @${contactNumber}`,
-    message.id as any
+    `Quem *${value}*: @${contactNumber}`
   );
 };
 

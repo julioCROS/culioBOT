@@ -52,10 +52,8 @@ const func: Command = async (params) => {
   await client.sendImage(
     message.from,
     dataUri,
-    imageName,
-    `Ta na mão.
-link: ${imgUrl}
-    `,
+    Date.now() + '.jpg',
+    `Ta na mão disgraced: *${value}*`,
     message.id
   );
 };

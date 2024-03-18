@@ -20,7 +20,7 @@ const func: Command = async ({ client, message, value }) => {
   if (first === second && second === third) {
     client.sendText(message.from, `🎉 Parabéns, você ganhou!`);
   } else {
-    client.sendText(message.from, `💸 Você perdeu!`);
+    client.sendText(message.from, `💸 Você perdeu otario!`);
   }
 };
 
@@ -29,7 +29,7 @@ const jackpot: CommandData = {
   category: CommandType.FUNNY,
   description: 'Joguinho de cassino 🎰',
   func,
-  allowInGroups: false,
+  allowInGroups: true,
   allowInPrivate: true,
   hidden: false,
 };

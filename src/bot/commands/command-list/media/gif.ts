@@ -3,6 +3,8 @@ import { Command, CommandData, CommandType } from '@command-protocols';
 import { outputErrorMessage } from '@bot-utils/output-error-message';
 import { getRandomInterval } from '@utils';
 
+const imageDataURI = require('image-data-uri');
+
 const giphy = giphyApi();
 
 const getGif = async (term: string) => {
@@ -88,14 +90,13 @@ const func: Command = async (params) => {
   }
 
   const gifName = gifUrl as string;
+  const dataUri = await imageDataURI.encodeFromURL(gifName);
 
   await client
     .sendGiphy(
       message.from,
-      gifName,
-      `Ta na mão.
-link: ${gifUrl}
-    `
+      dataUri,
+      `Segura ai mlk: ${value}`
     )
     .catch(() =>
       client.reply(

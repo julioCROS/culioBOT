@@ -5,13 +5,12 @@ export const getRandomContactNumber = async (
   client: Client,
   message: Message
 ) => {
+
   let groupMembers = await client.getGroupMembers(message.chat.id as any);
+  console.log("get-random-contact-number.ts # groupMembers:" + groupMembers);
 
-  let filtered = groupMembers.filter((member) => {
-    return !member.isMe && member.id !== message.sender.id;
-  });
-
-  const firstMember = getRandom(filtered);
+  const firstMember = getRandom(groupMembers);
+  console.log("get-random-contact-number.ts # firstMember:" + firstMember)
 
   return firstMember.id.split('@')[0];
 };

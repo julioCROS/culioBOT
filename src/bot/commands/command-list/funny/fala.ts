@@ -77,18 +77,18 @@ function getLangCodeAndTextFromQuery(
       langCode =
         langCode.length === 5
           ? `${langCode.slice(0, 3).toLowerCase()}-${langCode
-              .slice(2)
-              .toUpperCase()}`
+            .slice(2)
+            .toUpperCase()}`
           : `${langCode.slice(0, 2).toLowerCase()}-${langCode
-              .slice(2)
-              .toUpperCase()}`;
+            .slice(2)
+            .toUpperCase()}`;
     }
 
     const lowerCasedLangCode = langCode.toLowerCase();
     const targetLangCode = supportedLanguages.filter((lang) =>
       langCode.length < 4
         ? lang.indexOf(lowerCasedLangCode) === 0 ||
-          lang.split('-')[1].toLowerCase().indexOf(lowerCasedLangCode) === 0
+        lang.split('-')[1].toLowerCase().indexOf(lowerCasedLangCode) === 0
         : lang === langCode
     )[0];
 
@@ -123,7 +123,7 @@ const func: Command = async ({ value, client, message }) => {
     outputErrorMessage(
       client,
       message,
-      'Tem que mandar um texto para eu imitar, pô'
+      'Tem que mandar um texto para eu imitar OTARIO.'
     );
     return;
   }
@@ -131,7 +131,7 @@ const func: Command = async ({ value, client, message }) => {
   if (text.length > 200) {
     client.reply(
       message.from,
-      'A sua mensagem ultrapassou 200 caracteres, infelizmente vou ter que cortar um pedaço dela 😞✂️',
+      'A sua mensagem ultrapassou 200 caracteres, infelizmente vou ter que cortar um pedaço dela 😞✂️.',
       message.id
     );
     text = text.slice(0, 200);
@@ -147,7 +147,7 @@ const func: Command = async ({ value, client, message }) => {
     lang = langCode !== null ? langCode : lang;
     await client.reply(
       message.from,
-      'Estou procurando o áudio 🧐🔎, aguarde.',
+      'Estou gerando o aúdio 🧐🔎, aguarde.',
       message.id
     );
   }
@@ -170,7 +170,7 @@ const func: Command = async ({ value, client, message }) => {
   if (!audioUrl) {
     client.reply(
       message.from,
-      'Não consegui encontrar um áudio para o texto fornecido 😞',
+      'Não consegui gerar o áudio para o texto fornecido 😞',
       message.id
     );
   }

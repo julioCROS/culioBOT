@@ -7,7 +7,7 @@ const func: Command = async ({ client, message, value }) => {
     client,
     message,
     value,
-    'Você precisa me dizer qual pessoa você quer beijar'
+    'Você precisa me dizer qual pessoa você quer beijar 😘.'
   );
   if (kissedPerson) {
     const giphys = [
