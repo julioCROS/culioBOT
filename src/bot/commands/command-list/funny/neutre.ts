@@ -29,11 +29,11 @@ const neutralize = (text: string): string => {
 const toNeutre = (word: string) => {
     const neutreSuffix = getNeutreSuffix();
 
-    if(word.length === 1){
-        return word; 
+    if (word.length === 1) {
+        return word;
     }
 
-    if(isVogal(word[word.length - 1])){
+    if (isVogal(word[word.length - 1])) {
         return `${word.slice(0, word.length - 1)}${neutreSuffix}`;
     } else if (word[word.length - 1] === "s" && isVogal(word[word.length - 2])) {
         return `${word.slice(0, word.length - 2)}${neutreSuffix}s`;
@@ -48,10 +48,10 @@ const getNeutreSuffix = (): string => {
 };
 
 const isVogal = (letter: string): boolean => {
-    return /[aeiouãẽĩõũáéíóúâêîôûàèìòùäëïöü]/ig.test(letter);
+    return /[aeoãẽáéâêàèäë]/ig.test(letter);
 };
 
-const prob: CommandData = {
+const neutre: CommandData = {
     command: ['.neutre'],
     category: CommandType.FUNNY,
     func,
@@ -60,4 +60,4 @@ const prob: CommandData = {
     allowInPrivate: true,
 };
 
-export default prob;
+export default neutre;
