@@ -155,7 +155,7 @@ const isVogal = (letter: string): boolean => {
     return /[aeoãẽáéâêàèäë]/ig.test(letter);
 };
 
-const prob: CommandData = {
+const neutre: CommandData = {
     command: ['.neutre'],
     category: CommandType.FUNNY,
     func,
@@ -164,4 +164,4 @@ const prob: CommandData = {
     allowInPrivate: true,
 };
 
-export default prob;
+export default neutre;

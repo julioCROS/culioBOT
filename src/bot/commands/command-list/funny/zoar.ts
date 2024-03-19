@@ -25,7 +25,9 @@ const func: Command = async (params) => {
     message.sender.id
   );
 
-  let imgUrl = await getImage('meme')
+  const randomNumber = Math.floor(Math.random() * 100);
+
+  let imgUrl = await getImage('meme #' + randomNumber)
     .then((url) => url)
     .catch(() => {
       return false;
@@ -37,13 +39,13 @@ const func: Command = async (params) => {
     message.from,
     dataUri,
     Date.now() + '.jpg',
-    `@${contactName} ${getRandom(memes)}`,
+    `${value} ${getRandom(memes)}`,
     message.id
   );
 };
 
-const marry: CommandData = {
-  command: ['.zoar'],
+const zoar: CommandData = {
+  command: ['.zoar', '.zuar'],
   category: CommandType.FUNNY,
   description:
     'Zoa a pessoa marcada com alguma coisa aleatória',
@@ -52,4 +54,4 @@ const marry: CommandData = {
   allowInPrivate: false,
 };
 
-export default marry;
+export default zoar;
